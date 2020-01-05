@@ -8,7 +8,7 @@ jobs:
   
     - deploy:
         name: digital-ocean
-        command: ssh -o "StrictHostKeyChecking no" root@162.243.172.123 "cd ~/nodejsproc; git pull;
+        command: ssh -o "StrictHostKeyChecking no" root@162.243.172.123 "cd ~/nodeprocdocker; git pull;
           docker rmi -f api
           docker build -t api .;
           docker stop api;
