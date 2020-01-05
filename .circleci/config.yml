@@ -1,22 +1,22 @@
 version: 2
 jobs:
- build:
-  docker:
-  - image: circleci/node:10
-  steps:
-  - checkout
+  build:
+    docker:
+    - image: circleci/node:10
+    steps:
+    - checkout
   
-  - deploy:
-   name: digital-ocean
-   command: ssh -o "StrictHostKeyChecking no" root@162.243.172.123 "cd ~/nodejsproc; git pull;
-   docker rmi -f api
-   docker build -t api .;
-   docker stop api;
-   docker rm api;
-   docker run --name api -p 8080:8080 -d api"
+    - deploy:
+        name: digital-ocean
+        command: ssh -o "StrictHostKeyChecking no" root@162.243.172.123 "cd ~/nodejsproc; git pull;
+          docker rmi -f api
+          docker build -t api .;
+          docker stop api;
+          docker rm api;
+          docker run --name api -p 8080:8080 -d api"
 
 workflows:
- version: 2
- Build and Test:
-  jobs:
-  - build
+  version: 2
+  Build and Test:
+    jobs:
+    - build
