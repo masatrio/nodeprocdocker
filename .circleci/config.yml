@@ -6,7 +6,7 @@ jobs:
   steps:
   - checkout
   
-  - deploy
+  - deploy:
    name: digital-ocean
    command: ssh -o "StrictHostKeyChecking no" root@162.243.172.123 "cd ~/nodejsproc; git pull;
    docker rmi -f api
