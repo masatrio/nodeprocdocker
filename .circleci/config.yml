@@ -2,7 +2,7 @@ version: 2
 jobs:
  build:
   docker:
-  - image circleci/node:10
+  - image: circleci/node:10
   steps:
   - checkout
   
@@ -14,3 +14,9 @@ jobs:
    docker stop api;
    docker rm api;
    docker run --name api -p 8080:8080 -d api"
+
+workflows:
+ version: 2
+ Build and Test:
+  jobs:
+  - build
